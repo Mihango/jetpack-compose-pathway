@@ -1,4 +1,4 @@
-package com.example.compose.pathway.ui.views
+package com.example.compose.pathway.ui.intro
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items

@@ -1,6 +1,8 @@
-package com.example.compose.pathway.ui.views
+package com.example.compose.pathway.ui.intro
 
 import android.content.res.Configuration
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -12,6 +14,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,7 +38,13 @@ fun MessageCard(msg: Message) {
         )
 
         Spacer(modifier = Modifier.width(8.dp))
+        // keep track if message is expanded or not
         var isExpanded by remember { mutableStateOf(false) }
+
+        // surface color will be updated gradually from one color to the other
+        val surfaceColor: Color by animateColorAsState(
+            if (isExpanded) MaterialTheme.colors.primary else MaterialTheme.colors.surface,
+        )
 
         Column(
             modifier = Modifier.clickable { isExpanded = !isExpanded }
@@ -50,7 +59,14 @@ fun MessageCard(msg: Message) {
 
             Surface(
                 shape = MaterialTheme.shapes.medium,
-                elevation = 1.dp
+                elevation = 1.dp,
+                // surface color to change gradually
+
+                color = surfaceColor,
+                // animate content size
+                modifier = Modifier
+                    .animateContentSize()
+                    .padding(1.dp)
             ) {
                 Text(
                     text = msg.body,
