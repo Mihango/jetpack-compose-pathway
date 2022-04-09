@@ -7,10 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.example.compose.pathway.data.SampleData
-import com.example.compose.pathway.ui.basic_codelab.MyApp
+import com.example.compose.pathway.ui.basic_codelab.MyAppScreen
 import com.example.compose.pathway.ui.theme.ComposePathwayTheme
-import com.example.compose.pathway.ui.intro.Conversation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +21,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     // Conversation(messages = SampleData.conversationSample)
-                    MyApp()
+                    MyAppScreen()
                 }
             }
         }
