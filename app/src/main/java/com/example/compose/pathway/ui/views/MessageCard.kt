@@ -14,10 +14,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.compose.pathway.R
+import com.example.compose.pathway.data.Message
 import com.example.compose.pathway.ui.theme.ComposePathwayTheme
 
-
-data class Message(val author: String, val body: String)
 
 @Composable
 fun MessageCard(msg: Message) {
@@ -55,7 +54,8 @@ fun MessageCard(msg: Message) {
 
 @Preview(
     name = "Light Mode",
-    showBackground = true,)
+    showBackground = true,
+)
 @Preview(
     uiMode = Configuration.UI_MODE_NIGHT_YES,
     showBackground = true,
