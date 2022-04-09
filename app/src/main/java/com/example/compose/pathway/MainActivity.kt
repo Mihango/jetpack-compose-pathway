@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.example.compose.pathway.data.Message
+import com.example.compose.pathway.data.SampleData
 import com.example.compose.pathway.ui.theme.ComposePathwayTheme
-import com.example.compose.pathway.ui.views.MessageCard
+import com.example.compose.pathway.ui.views.Conversation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MessageCard(msg = Message("Kennedy Kariuki", "Introduction to Rust for Web"))
+                    Conversation(messages = SampleData.conversationSample)
                 }
             }
         }
